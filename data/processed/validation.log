@@ -1,0 +1,35 @@
+base fairload 0.852 best rule last 0.824 hindsight 0.857
+truck fairload 0.817 best rule last 0.770 hindsight 0.825
+surge fairload 0.859 best rule last 0.831 hindsight 0.864
+demand fairload 0.805 best rule last 0.778 hindsight 0.809
+cold fairload 0.848 best rule last 0.820 hindsight 0.853
+combined fairload 0.792 best rule last 0.736 hindsight 0.799
+sens Base case 0.0298 0.0603
+sens Supply covers 70% of need 0.0176 0.0441
+sens Supply covers 100% of need 0.0066 0.0381
+sens Fleet hours 105% of current use 0.0436 0.0687
+sens Fleet hours 150% of current use 0.0041 0.0117
+sens Fleet hours 300% (trucks never limit) 0.0013 0.0011
+sens Spoilage halved 0.0307 0.0619
+sens Spoilage doubled 0.0283 0.0574
+sens Site intake halved 0.0175 0.0476
+sens Site intake doubled 0.0266 0.0587
+sens Need half poverty, half population 0.0302 0.0622
+sens Cold storage 0.75 weeks 0.0295 0.0593
+sens Handling 1 hour per load 0.0493 0.0878
+sens Handling 4 hours per load 0.0134 0.0303
+sens Plan 2 weeks ahead 0.0227 0.0535
+sens Plan 8 weeks ahead 0.0305 0.0610
+sens Hub locations off by about 5 road miles 0.0189 0.0420
+fairnessTune base 0:84.5/28.8/11041 0.3:84.5/29.1/11041 0.5:84.5/29.2/11298 0.6:84.5/29.2/9552 0.7:84.5/29.2/8020 0.8:84.5/29.2/8020 0.9:83.9/29.2/8020 1:84.3/29.2/8020
+fairnessTune combined 0:77.7/23.1/22166 0.3:77.7/27.3/24015 0.5:77.7/27.3/23864 0.6:77.6/27.3/22616 0.7:77.3/27.3/11666 0.8:76.3/27.3/11666 0.9:76.3/27.3/13110 1:77.0/27.3/11666
+fairness base 0:85.9/28.9/9672 0.3:85.9/29.0/9672 0.5:85.9/29.0/9568 0.6:85.9/29.0/8991 0.7:85.9/29.0/8020 0.8:85.8/29.0/8020 0.9:85.6/29.0/8020 1:85.8/29.0/8020
+fairness combined 0:80.7/24.5/18794 0.3:80.7/28.4/19133 0.5:80.7/28.5/18641 0.6:80.6/28.5/14890 0.7:80.5/28.5/9964 0.8:79.7/28.5/9964 0.9:79.1/28.5/10068 1:80.1/28.5/9964
+Current resources 85.85 29.0 8020
+One more truck at Newark 85.86 29.0 8020
+One more truck at Milford 86.79 29.0 8020
+Double cold storage at both hubs 85.85 29.0 8020
+One more site in 19805 Wilmington 86.36 58.1 6950
+Three more sites in 19805 Wilmington 86.39 64.4 0
+Two more sites in 19711 Newark 86.24 29.0 8020
+done

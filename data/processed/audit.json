@@ -1,0 +1,74 @@
+[
+ {
+  "name": "current",
+  "u40": 22052,
+  "u50": 27426,
+  "u60": 29488,
+  "u75": 42144,
+  "zipsU50": 5,
+  "worst": 0.88,
+  "wShort": 5.17,
+  "moved": 0,
+  "milesRatio": 1
+ },
+ {
+  "name": "LP +/-25%",
+  "u40": 15312,
+  "u50": 22052,
+  "u60": 27426,
+  "u75": 29488,
+  "zipsU50": 3,
+  "worst": 1.1,
+  "wShort": 4.1,
+  "moved": 174155,
+  "milesRatio": 0.98
+ },
+ {
+  "name": "LP +/-50%",
+  "u40": 15312,
+  "u50": 15312,
+  "u60": 22052,
+  "u75": 27426,
+  "zipsU50": 2,
+  "worst": 1.32,
+  "wShort": 3.5,
+  "moved": 273256,
+  "milesRatio": 1
+ },
+ {
+  "name": "LP +/-100%",
+  "u40": 15312,
+  "u50": 15312,
+  "u60": 15312,
+  "u75": 15312,
+  "zipsU50": 2,
+  "worst": 1.76,
+  "wShort": 2.81,
+  "moved": 337640,
+  "milesRatio": 1
+ },
+ {
+  "name": "RULE population share (uncapped)",
+  "u40": 0,
+  "u50": 0,
+  "u60": 0,
+  "u75": 0,
+  "zipsU50": 0,
+  "worst": 16.65,
+  "wShort": 0,
+  "moved": 461023,
+  "milesRatio": 0.86
+ },
+ {
+  "name": "RULE population share capped +/-50%",
+  "u40": 15312,
+  "u50": 15312,
+  "u60": 22052,
+  "u75": 27426,
+  "zipsU50": 2,
+  "worst": 1.32,
+  "wShort": 3.5,
+  "moved": 167178,
+  "milesRatio": 0.96
+ }
+]

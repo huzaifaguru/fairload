@@ -1,0 +1,8 @@
+.venv/
+.venv312/
+node_modules/
+dist/
+
+~$*
+data/raw/acs_zcta_poverty_2022.json
+data/raw/acs_zcta_poverty_2023.json

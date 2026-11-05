@@ -1,0 +1,543 @@
+{
+ "excluded": [
+  [
+   "Dover Speedway Mass Dist",
+   "one-off mass event 98899 lb"
+  ],
+  [
+   "Wesley College Downtown",
+   "implausible value 14.917"
+  ],
+  [
+   "DSU Wesley College",
+   "missing value"
+  ],
+  [
+   "CRODA",
+   "implausible value 6.483"
+  ],
+  [
+   "Grace Church",
+   "exact duplicate"
+  ]
+ ],
+ "nZipModel": 31,
+ "droppedSmall": [
+  "19733"
+ ],
+ "lb": 1484579.06,
+ "poor": 89166,
+ "avg": 16.649609268106676,
+ "milesBase": 2802.7781214511647,
+ "hubLb": {
+  "newark": 547144.1099999999,
+  "milford": 937434.9499999998
+ },
+ "results": [
+  {
+   "delta": 0,
+   "worst": 0.8785536159600997,
+   "p10": 7.165062421972535,
+   "med": 21.4849081803005,
+   "best": 159.03016736401673,
+   "under50": 5,
+   "poorUnder50": 27426,
+   "miles": 2802.7781214511647,
+   "moved": 0
+  },
+  {
+   "delta": 0.1,
+   "worst": 0.9664089775561098,
+   "p10": 7.881568664169787,
+   "med": 19.33641736227045,
+   "best": 143.12715062761507,
+   "under50": 5,
+   "poorUnder50": 27426,
+   "miles": 2802.779886204512,
+   "moved": 69562.43000000031,
+   "ms": 156,
+   "total": 1484579.0600000005
+  },
+  {
+   "delta": 0.25,
+   "worst": 1.0981920199501247,
+   "p10": 8.956328339575531,
+   "med": 18.397298567591765,
+   "best": 119.27262552301255,
+   "under50": 3,
+   "poorUnder50": 22052,
+   "miles": 2751.8639302546103,
+   "moved": 174155.39653468214,
+   "ms": 25,
+   "total": 1484579.0599999996
+  },
+  {
+   "delta": 0.5,
+   "worst": 1.3178304239401497,
+   "p10": 10.747593632958802,
+   "med": 16.649608761910596,
+   "best": 79.51508368200837,
+   "under50": 2,
+   "poorUnder50": 15312,
+   "miles": 2802.7801872252044,
+   "moved": 273255.68749161984,
+   "ms": 35,
+   "total": 1484579.0600000003
+  },
+  {
+   "delta": 1,
+   "worst": 1.7571072319201995,
+   "p10": 14.33012484394507,
+   "med": 16.649608502176708,
+   "best": 155.72403766979096,
+   "under50": 2,
+   "poorUnder50": 15312,
+   "miles": 2802.780103108424,
+   "moved": 337640.4661575646,
+   "ms": 25,
+   "total": 1484579.06
+  }
+ ],
+ "assumptions": {
+  "CIRCUITY": 1.3,
+  "TRUCK_LB": 20000,
+  "MIN_POOR": 100,
+  "HUBS": {
+   "newark": [
+    39.62,
+    -75.7
+   ],
+   "milford": [
+    38.91,
+    -75.43
+   ]
+  }
+ },
+ "zips": [
+  {
+   "zip": "19805",
+   "city": "Wilmington",
+   "lbs": 7046,
+   "poor": 8020,
+   "cov": 0.9,
+   "hub": "newark",
+   "sites": 1,
+   "lat": 39.7409,
+   "lng": -75.6025,
+   "x25": 8808
+  },
+  {
+   "zip": "19711",
+   "city": "Newark",
+   "lbs": 12009,
+   "poor": 7292,
+   "cov": 1.6,
+   "hub": "newark",
+   "sites": 2,
+   "lat": 39.685,
+   "lng": -75.7544,
+   "x25": 15011
+  },
+  {
+   "zip": "19720",
+   "city": "New Castle",
+   "lbs": 44333,
+   "poor": 6740,
+   "cov": 6.6,
+   "hub": "newark",
+   "sites": 6,
+   "lat": 39.6851,
+   "lng": -75.5789,
+   "x25": 55416
+  },
+  {
+   "zip": "19804",
+   "city": "Wilmington",
+   "lbs": 11478,
+   "poor": 1602,
+   "cov": 7.2,
+   "hub": "newark",
+   "sites": 2,
+   "lat": 39.7182,
+   "lng": -75.6153,
+   "x25": 14348
+  },
+  {
+   "zip": "19713",
+   "city": "Newark",
+   "lbs": 28259,
+   "poor": 3772,
+   "cov": 7.5,
+   "hub": "newark",
+   "sites": 5,
+   "lat": 39.6972,
+   "lng": -75.6739,
+   "x25": 35324
+  },
+  {
+   "zip": "19808",
+   "city": "Wilmington",
+   "lbs": 18089,
+   "poor": 2062,
+   "cov": 8.8,
+   "hub": "newark",
+   "sites": 3,
+   "lat": 39.7267,
+   "lng": -75.6655,
+   "x25": 22612
+  },
+  {
+   "zip": "19709",
+   "city": "Middletown",
+   "lbs": 27328,
+   "poor": 2660,
+   "cov": 10.3,
+   "hub": "newark",
+   "sites": 2,
+   "lat": 39.4528,
+   "lng": -75.7117,
+   "x25": 34161
+  },
+  {
+   "zip": "19701",
+   "city": "Newark",
+   "lbs": 35698,
+   "poor": 3011,
+   "cov": 11.9,
+   "hub": "newark",
+   "sites": 5,
+   "lat": 39.6213,
+   "lng": -75.6706,
+   "x25": 44622
+  },
+  {
+   "zip": "19802",
+   "city": "Wilmington",
+   "lbs": 66494,
+   "poor": 5429,
+   "cov": 12.2,
+   "hub": "newark",
+   "sites": 5,
+   "lat": 39.7519,
+   "lng": -75.5264,
+   "x25": 83117
+  },
+  {
+   "zip": "19703",
+   "city": "Claymont",
+   "lbs": 19411,
+   "poor": 1556,
+   "cov": 12.5,
+   "hub": "newark",
+   "sites": 4,
+   "lat": 39.8025,
+   "lng": -75.4609,
+   "x25": 24264
+  },
+  {
+   "zip": "19702",
+   "city": "Newark",
+   "lbs": 57478,
+   "poor": 4387,
+   "cov": 13.1,
+   "hub": "newark",
+   "sites": 7,
+   "lat": 39.6489,
+   "lng": -75.6942,
+   "x25": 71848
+  },
+  {
+   "zip": "19904",
+   "city": "Dover",
+   "lbs": 78080,
+   "poor": 5339,
+   "cov": 14.6,
+   "hub": "milford",
+   "sites": 6,
+   "lat": 39.1616,
+   "lng": -75.5344,
+   "x25": 88892
+  },
+  {
+   "zip": "19956",
+   "city": "Laurel",
+   "lbs": 37564,
+   "poor": 2443,
+   "cov": 15.4,
+   "hub": "milford",
+   "sites": 3,
+   "lat": 38.5645,
+   "lng": -75.5794,
+   "x25": 40675
+  },
+  {
+   "zip": "19809",
+   "city": "Wilmington",
+   "lbs": 32330,
+   "poor": 1727,
+   "cov": 18.7,
+   "hub": "newark",
+   "sites": 1,
+   "lat": 39.7704,
+   "lng": -75.4957,
+   "x25": 40413
+  },
+  {
+   "zip": "19973",
+   "city": "Seaford",
+   "lbs": 90993,
+   "poor": 4431,
+   "cov": 20.5,
+   "hub": "milford",
+   "sites": 4,
+   "lat": 38.6455,
+   "lng": -75.6094,
+   "x25": 113742
+  },
+  {
+   "zip": "19945",
+   "city": "Frankford",
+   "lbs": 25739,
+   "poor": 1198,
+   "cov": 21.5,
+   "hub": "milford",
+   "sites": 2,
+   "lat": 38.5197,
+   "lng": -75.2234,
+   "x25": 19946
+  },
+  {
+   "zip": "19901",
+   "city": "Dover",
+   "lbs": 113722,
+   "poor": 4954,
+   "cov": 23,
+   "hub": "milford",
+   "sites": 9,
+   "lat": 39.2507,
+   "lng": -75.5199,
+   "x25": 85291
+  },
+  {
+   "zip": "19947",
+   "city": "Georgetown",
+   "lbs": 54799,
+   "poor": 2234,
+   "cov": 24.5,
+   "hub": "milford",
+   "sites": 5,
+   "lat": 38.6855,
+   "lng": -75.393,
+   "x25": 41100
+  },
+  {
+   "zip": "19960",
+   "city": "Lincoln",
+   "lbs": 16258,
+   "poor": 654,
+   "cov": 24.9,
+   "hub": "milford",
+   "sites": 2,
+   "lat": 38.8577,
+   "lng": -75.3363,
+   "x25": 12193
+  },
+  {
+   "zip": "19963",
+   "city": "Milford",
+   "lbs": 69807,
+   "poor": 2754,
+   "cov": 25.3,
+   "hub": "milford",
+   "sites": 5,
+   "lat": 38.9157,
+   "lng": -75.4359,
+   "x25": 87259
+  },
+  {
+   "zip": "19966",
+   "city": "Millsboro",
+   "lbs": 106398,
+   "poor": 4179,
+   "cov": 25.5,
+   "hub": "milford",
+   "sites": 3,
+   "lat": 38.5907,
+   "lng": -75.2658,
+   "x25": 79798
+  },
+  {
+   "zip": "19943",
+   "city": "Felton",
+   "lbs": 30587,
+   "poor": 1140,
+   "cov": 26.8,
+   "hub": "milford",
+   "sites": 2,
+   "lat": 39.0651,
+   "lng": -75.5504,
+   "x25": 22940
+  },
+  {
+   "zip": "19933",
+   "city": "Bridgeville",
+   "lbs": 54208,
+   "poor": 2012,
+   "cov": 26.9,
+   "hub": "milford",
+   "sites": 4,
+   "lat": 38.7067,
+   "lng": -75.5818,
+   "x25": 67761
+  },
+  {
+   "zip": "19977",
+   "city": "Smyrna",
+   "lbs": 65966,
+   "poor": 2424,
+   "cov": 27.2,
+   "hub": "newark",
+   "sites": 6,
+   "lat": 39.2874,
+   "lng": -75.6072,
+   "x25": 82458
+  },
+  {
+   "zip": "19801",
+   "city": "Wilmington",
+   "lbs": 121224,
+   "poor": 4130,
+   "cov": 29.4,
+   "hub": "newark",
+   "sites": 13,
+   "lat": 39.7339,
+   "lng": -75.5515,
+   "x25": 90918
+  },
+  {
+   "zip": "19952",
+   "city": "Harrington",
+   "lbs": 36512,
+   "poor": 771,
+   "cov": 47.4,
+   "hub": "milford",
+   "sites": 3,
+   "lat": 38.9236,
+   "lng": -75.5809,
+   "x25": 27384
+  },
+  {
+   "zip": "19962",
+   "city": "Magnolia",
+   "lbs": 40935,
+   "poor": 802,
+   "cov": 51,
+   "hub": "milford",
+   "sites": 3,
+   "lat": 39.0723,
+   "lng": -75.5126,
+   "x25": 37905
+  },
+  {
+   "zip": "19953",
+   "city": "Hartly",
+   "lbs": 16860,
+   "poor": 325,
+   "cov": 51.9,
+   "hub": "milford",
+   "sites": 1,
+   "lat": 39.1298,
+   "lng": -75.6826,
+   "x25": 12645
+  },
+  {
+   "zip": "19946",
+   "city": "Frederica",
+   "lbs": 60906,
+   "poor": 456,
+   "cov": 133.6,
+   "hub": "milford",
+   "sites": 4,
+   "lat": 39.0391,
+   "lng": -75.4267,
+   "x25": 45679
+  },
+  {
+   "zip": "19951",
+   "city": "Harbeson",
+   "lbs": 28050,
+   "poor": 184,
+   "cov": 152.4,
+   "hub": "milford",
+   "sites": 1,
+   "lat": 38.676,
+   "lng": -75.2214,
+   "x25": 21038
+  },
+  {
+   "zip": "19950",
+   "city": "Greenwood",
+   "lbs": 76016,
+   "poor": 478,
+   "cov": 159,
+   "hub": "milford",
+   "sites": 3,
+   "lat": 38.8023,
+   "lng": -75.5853,
+   "x25": 57012
+  }
+ ],
+ "unservedTop": [
+  {
+   "zip": "19958",
+   "poor": 1892
+  },
+  {
+   "zip": "19968",
+   "poor": 1448
+  },
+  {
+   "zip": "19810",
+   "poor": 1202
+  },
+  {
+   "zip": "19971",
+   "poor": 1141
+  },
+  {
+   "zip": "19970",
+   "poor": 1076
+  },
+  {
+   "zip": "19940",
+   "poor": 1042
+  },
+  {
+   "zip": "19934",
+   "poor": 981
+  },
+  {
+   "zip": "19806",
+   "poor": 942
+  },
+  {
+   "zip": "19734",
+   "poor": 781
+  },
+  {
+   "zip": "19938",
+   "poor": 573
+  },
+  {
+   "zip": "19941",
+   "poor": 538
+  },
+  {
+   "zip": "19975",
+   "poor": 473
+  }
+ ],
+ "unservedPoor": 15035,
+ "unservedN": 38,
+ "statePoor": 104201
+}
