@@ -2,6 +2,8 @@
 
 ## Option 1: use the finished silent video
 
+This video was made before the final rerun, so its captions show the old range (2.3 to 3.7 points). Option 2 is better.
+
 `docs/media/fairload_demo.webm` runs about 2 minutes with on-screen captions, so no one needs a microphone. Upload it to YouTube as Public or Unlisted and paste the link into Devpost.
 
 ## Option 2: a teammate adds a voice
@@ -21,8 +23,8 @@ Open the file in a video editor and read this over it, or record the screen whil
 | 0:51 | Pin and price | Managers know things a model does not. Here one forces a shipment. |
 | 0:59 | Cost panel | FairLoad shows what that costs and which ZIPs give up the most. The person decides. |
 | 1:06 | Bottlenecks | It also shows what limits the plan, and what another truck or site would be worth. |
-| 1:13 | Test results | We tested it on 30 simulated 12-week runs per scenario, none used to set the model. |
-| 1:19 | Chart | FairLoad met 2.3 to 3.7 points more need than the strongest rule we tested, in all six scenarios. |
+| 1:13 | Test results | We tested it on 30 simulated 12-week runs per scenario, kept apart from the runs we tuned on. |
+| 1:19 | Chart | FairLoad met 2.7 to 3.4 points more need than the strongest rule we tested, in all six scenarios. |
 | 1:25 | What we found | We report the limits too. There is little gain when trucks are plentiful, and waste did not consistently fall. |
 | 1:32 | Sensitivity table | Every assumption can be changed, and we show how the result moves. |
 | 1:37 | Data tab | Real data and assumptions are kept separate, and another food bank can upload its own file. |

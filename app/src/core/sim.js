@@ -37,7 +37,8 @@ export function applyEvents(inst, week, events, t) {
 
 // One simulated run: real weekly values, plus events that planners only learn about when they start.
 export function makeScenario(inst, name, seed, T = 12) {
-  const r = rng(seed * 7919 + name.length * 104729);
+  const hash = s => [...s].reduce((h, c) => (Math.imul(h, 31) + c.charCodeAt(0)) | 0, 0); // name length alone collided (truck/surge, base/cold)
+  const r = rng(seed * 7919 + hash(name));
   for (let i = 0; i < 5; i++) r();
   const pickHub = () => (r() < 0.5 ? 0 : 1), counties = ['New Castle', 'Kent', 'Sussex'];
   const events = [];

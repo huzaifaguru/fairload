@@ -25,7 +25,7 @@ L.push(`- **Tuning:** seeds ${V.seeds.tune[0]}–${V.seeds.tune.at(-1)} were use
 L.push('- **Fair comparison:** every policy goes through the same simulator, which cuts shipments back to available stock, truck time, pantry intake and need. All policies know this week\'s orders.');
 L.push('- **Intervals:** 95% paired bootstrap, 4,000 resamples.');
 L.push('- **Baselines:** rules re-offer leftover food to ZIPs that can still take it. We added a truck-aware rule because the hand rules ignore truck time. In the summary comparison, the strongest rule is chosen after the fact in each scenario, which favors the rules.');
-L.push('- **Disclosure:** we ran the test seeds once, then found in the planner that a flat equity penalty starved the worst-served ZIP at high targets. We replaced the penalty and reran everything. The fix addressed fairness behavior, and the normal-weeks gain over the best hand rule stayed at +2.8 points. Weights were not tuned on test seeds.', '');
+L.push('- **Disclosure:** we ran the test seeds once, then found in the planner that a flat equity penalty starved the worst-served ZIP at high targets. We replaced the penalty and reran everything. The fix addressed fairness behavior, and the normal-weeks gain over the best hand rule stayed at +2.8 points. Weights were not tuned on test seeds. Later, a reviewer found that scenarios whose names had the same length shared the same random weeks (truck and surge, base and cold). We fixed the seeding and reran everything; the results here are from that rerun.', '');
 L.push('## Need met against the strongest rule', '', '| Scenario | Strongest rule | Rule | FairLoad | Gain (points) | 95% interval | Waste change (lb) |', '|---|---|--:|--:|--:|--:|--:|');
 names.forEach((k, i) => { const t = tops[i]; L.push(`| ${V.scenarios[k].label} | ${t.name} | ${p(t.rule)} | ${p(V.scenarios[k].policies.fairload.needMet)} | ${sg(t.gain.mean * 100)} | ${ci(t.gain.ci95)} | ${sgN(t.waste.mean)} |`); });
 L.push('');
@@ -36,7 +36,7 @@ for (const k of names) {
   const s = V.strongRule[k];
   L.push(`| Shortest routes with a 70% floor | ${p(s.needMet)} | ${n(s.waste)} | ${p(s.worst)} | ${n(s.below60)} | ${n(s.miles)} | none |`, '');
 }
-L.push('## Sensitivity: gain over the best hand rule', '', '| Assumption changed | Normal weeks (points) | 95% interval | Truck breakdown + demand spike (points) | 95% interval |', '|---|--:|--:|--:|--:|');
+L.push('## Sensitivity: gain over the best hand rule', '', '| Assumption changed | Normal weeks: gain vs best hand rule (points) | 95% interval | Truck breakdown + demand spike: gain vs best hand rule (points) | 95% interval |', '|---|--:|--:|--:|--:|');
 V.sensitivity.forEach(s => L.push(`| ${s.label} | ${sg(s.base.diff * 100)} | ${ci(s.base.ci95)} | ${sg(s.combined.diff * 100)} | ${ci(s.combined.ci95)} |`));
 L.push('');
 L.push('## Fairness target', '', 'Truck breakdown plus demand spike.', '', '| Target | Need met | Worst ZIP | People in ZIPs below 60% | Waste (lb) |', '|--:|--:|--:|--:|--:|');

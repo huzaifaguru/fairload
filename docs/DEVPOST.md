@@ -49,6 +49,8 @@ The last term penalizes each ZIP code's pounds below the equity target, and the 
 
 **Our first result looked better than it was.** Our pilot showed a 44% drop in people living in low-coverage ZIP codes. When we compared it with a simple rule, the rule matched the optimizer and moved less food. So the full model had to earn its place against rules.
 
+**Two scenarios shared the same random weeks.** A teammate found that our simulator seeded each scenario from the length of its name, so the truck and surge scenarios, and the normal and cold storage ones, drew the same random weeks. We fixed the seeding and reran every test. The numbers below are from that rerun.
+
 **Our first fairness penalty was wrong.** At fairness targets of 90% and 100%, the worst-served ZIP code fell to 0%. A flat penalty values a pound the same wherever it lands, so the solver chose cheap routes and starved a far ZIP code. We saw this in the app's own chart, replaced the penalty with one that rises with the gap, added a regression test and reran everything.
 
 **Hand rules ignore trucks.** A fair critic could say our baselines were weak, so we added a stronger rule: shortest routes first, with every ZIP code filled to a 70% floor. FairLoad still won, by a smaller margin, and we report that margin.
@@ -59,22 +61,22 @@ We tested FairLoad on 30 simulated 12-week runs per scenario, with every policy 
 
 | Scenario | Strongest rule | FairLoad | Gain (points) | 95% interval |
 |---|---:|---:|---:|---:|
-| Normal weeks | 82.4% | 85.2% | +2.8 | 2.4 to 3.2 |
-| Truck breakdown | 78.2% | 81.7% | +3.5 | 3.1 to 3.9 |
-| Produce donation surge | 83.3% | 85.9% | +2.7 | 2.4 to 3.0 |
-| Demand spike in one county | 78.2% | 80.5% | +2.3 | 1.9 to 2.7 |
-| Cold storage failure | 82.0% | 84.8% | +2.8 | 2.3 to 3.2 |
-| Truck breakdown and demand spike | 75.5% | 79.2% | +3.7 | 3.5 to 4.0 |
+| Normal weeks | 82.6% | 85.4% | +2.8 | 2.5 to 3.1 |
+| Truck breakdown | 79.1% | 82.5% | +3.4 | 3.0 to 3.7 |
+| Produce donation surge | 83.6% | 86.2% | +2.7 | 2.4 to 3.0 |
+| Demand spike in one county | 77.2% | 80.0% | +2.8 | 2.5 to 3.1 |
+| Cold storage failure | 81.9% | 85.0% | +3.0 | 2.7 to 3.4 |
+| Truck breakdown and demand spike | 74.1% | 77.5% | +3.4 | 3.0 to 3.8 |
 
-On normal weeks FairLoad came within 0.5 points of perfect hindsight.
+On normal weeks FairLoad came within 0.4 points of perfect hindsight.
 
 ## What we learned
 
-**Most of the gain comes from limited truck time.** With fleet hours at 150% of current use the gain over the best hand rule falls to +0.4 points, and at 300% it is +0.1. We have no real fleet data, so a food bank should check this first.
+**Most of the gain comes from limited truck time.** With fleet hours at 150% of current use the gain over the best hand rule falls to +0.5 points, and at 300% it is +0.1. We have no real fleet data, so a food bank should check this first.
 
-**FairLoad did not consistently cut waste.** Against the strongest rule, waste moved between −580 and +3,368 lb per 12 weeks.
+**FairLoad did not consistently cut waste.** Against the strongest rule, waste moved between −876 and +2,203 lb per 12 weeks.
 
-**Re-solving matters.** A plan made once from a forecast wasted 24,910 lb on normal weeks, against 8,438 lb for FairLoad.
+**Re-solving matters.** A plan made once from a forecast wasted 29,303 lb on normal weeks, against 9,431 lb for FairLoad.
 
 **Allocation cannot fix every gap.** ZIP code 19805 has 8,020 people in poverty and one recorded mobile pantry site, and it stays below 30% of need under every plan. In the model, one more site lifts it to 58%. Fixed pantries may already serve this area, so that needs checking first.
 
@@ -107,5 +109,5 @@ Upload `docs/media/fairload_demo.webm` to YouTube as Public or Unlisted, then pa
 
 ## Before you submit
 
-- Add every team member to the project. The last slide says members and roles are listed on the Devpost page.
+- Add every team member to the Devpost project: Syed Mohammad Huzaifa, Shaikh Muhammad Zain and Muhammad Maaz Ur Rehman. Their names are also on the last slide.
 - Ticking the eligibility box confirms that everyone is a student, among other things. Read the Official Rules first.

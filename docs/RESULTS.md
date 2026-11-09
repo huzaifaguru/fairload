@@ -4,11 +4,11 @@
 
 ## Summary
 
-- FairLoad met more need than the strongest rule tested in all 6 scenarios, by 2.3 to 3.7 percentage points.
+- FairLoad met more need than the strongest rule tested in all 6 scenarios, by 2.7 to 3.4 percentage points.
 - Most of the gain comes from limited truck time. When trucks never limit delivery, the gain over the best hand rule is +0.1 points.
-- FairLoad did not consistently cut waste. Against the strongest rule, waste moved −580 to +3,368 lb per 12 weeks.
-- Re-solving each week matters: on normal weeks a one-forecast plan wasted 24,910 lb against 8,438 lb, and met 5.8 points less need.
-- ZIP 19805 stays below 30% of need under every plan because it has one recorded site. In the model, one more site lifts it to 58.1%.
+- FairLoad did not consistently cut waste. Against the strongest rule, waste moved −876 to +2,203 lb per 12 weeks.
+- Re-solving each week matters: on normal weeks a one-forecast plan wasted 29,303 lb against 9,431 lb, and met 5.4 points less need.
+- ZIP 19805 stays below 30% of need under every plan because it has one recorded site. In the model, one more site lifts it to 58.2%.
 
 ## Method
 
@@ -17,18 +17,18 @@
 - **Fair comparison:** every policy goes through the same simulator, which cuts shipments back to available stock, truck time, pantry intake and need. All policies know this week's orders.
 - **Intervals:** 95% paired bootstrap, 4,000 resamples.
 - **Baselines:** rules re-offer leftover food to ZIPs that can still take it. We added a truck-aware rule because the hand rules ignore truck time. In the summary comparison, the strongest rule is chosen after the fact in each scenario, which favors the rules.
-- **Disclosure:** we ran the test seeds once, then found in the planner that a flat equity penalty starved the worst-served ZIP at high targets. We replaced the penalty and reran everything. The fix addressed fairness behavior, and the normal-weeks gain over the best hand rule stayed at +2.8 points. Weights were not tuned on test seeds.
+- **Disclosure:** we ran the test seeds once, then found in the planner that a flat equity penalty starved the worst-served ZIP at high targets. We replaced the penalty and reran everything. The fix addressed fairness behavior, and the normal-weeks gain over the best hand rule stayed at +2.8 points. Weights were not tuned on test seeds. Later, a reviewer found that scenarios whose names had the same length shared the same random weeks (truck and surge, base and cold). We fixed the seeding and reran everything; the results here are from that rerun.
 
 ## Need met against the strongest rule
 
 | Scenario | Strongest rule | Rule | FairLoad | Gain (points) | 95% interval | Waste change (lb) |
 |---|---|--:|--:|--:|--:|--:|
-| Normal weeks | Repeat last period | 82.4% | 85.2% | +2.8 | 2.4 to 3.2 | −239 |
-| Truck breakdown | Shortest routes with a 70% floor | 78.2% | 81.7% | +3.5 | 3.1 to 3.9 | +3,368 |
-| Produce donation surge | Shortest routes with a 70% floor | 83.3% | 85.9% | +2.7 | 2.4 to 3.0 | −127 |
-| Demand spike in one county | Shortest routes with a 70% floor | 78.2% | 80.5% | +2.3 | 1.9 to 2.7 | +758 |
-| Cold storage failure | Repeat last period | 82.0% | 84.8% | +2.8 | 2.3 to 3.2 | −580 |
-| Truck breakdown and demand spike | Shortest routes with a 70% floor | 75.5% | 79.2% | +3.7 | 3.5 to 4.0 | +1,811 |
+| Normal weeks | Shortest routes with a 70% floor | 82.6% | 85.4% | +2.8 | 2.5 to 3.1 | +36 |
+| Truck breakdown | Shortest routes with a 70% floor | 79.1% | 82.5% | +3.4 | 3.0 to 3.7 | +2,203 |
+| Produce donation surge | Shortest routes with a 70% floor | 83.6% | 86.2% | +2.7 | 2.4 to 3.0 | −876 |
+| Demand spike in one county | Shortest routes with a 70% floor | 77.2% | 80.0% | +2.8 | 2.5 to 3.1 | +46 |
+| Cold storage failure | Shortest routes with a 70% floor | 81.9% | 85.0% | +3.0 | 2.7 to 3.4 | +376 |
+| Truck breakdown and demand spike | Shortest routes with a 70% floor | 74.1% | 77.5% | +3.4 | 3.0 to 3.8 | +987 |
 
 ## Every policy by scenario
 
@@ -36,95 +36,95 @@
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 82.4% | 8,677 | 27.3% | 14,683 | 1,767 | none |
-| Share of people in poverty | 80.6% | 9,231 | 29.0% | 8,402 | 1,707 | none |
-| Poverty share, capped ±50% | 82.0% | 8,690 | 27.2% | 14,683 | 1,753 | none |
-| One-forecast plan, no re-solve | 79.4% | 24,910 | 28.7% | 14,414 | 1,605 | 249 ms |
-| FairLoad, weekly re-solve | 85.2% | 8,438 | 29.0% | 8,020 | 1,698 | 38 ms |
-| Perfect hindsight (upper bound) | 85.7% | 8,882 | 29.0% | 8,020 | 1,712 | 225 ms |
-| Shortest routes with a 70% floor | 82.3% | 8,719 | 29.0% | 8,633 | 1,583 | none |
+| Repeat last period | 82.2% | 9,414 | 27.3% | 15,413 | 1,797 | none |
+| Share of people in poverty | 80.6% | 10,126 | 29.2% | 8,711 | 1,743 | none |
+| Poverty share, capped ±50% | 81.6% | 9,528 | 27.3% | 15,027 | 1,787 | none |
+| One-forecast plan, no re-solve | 80.0% | 29,303 | 28.8% | 14,963 | 1,615 | 225 ms |
+| FairLoad, weekly re-solve | 85.4% | 9,431 | 29.2% | 8,020 | 1,715 | 34 ms |
+| Perfect hindsight (upper bound) | 85.7% | 9,829 | 29.2% | 8,020 | 1,721 | 221 ms |
+| Shortest routes with a 70% floor | 82.6% | 9,396 | 29.2% | 8,020 | 1,619 | none |
 
 ### Truck breakdown
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 77.0% | 12,430 | 26.4% | 15,095 | 1,690 | none |
-| Share of people in poverty | 75.6% | 14,929 | 28.9% | 10,891 | 1,640 | none |
-| Poverty share, capped ±50% | 76.7% | 13,072 | 26.9% | 15,235 | 1,675 | none |
-| One-forecast plan, no re-solve | 75.1% | 27,366 | 28.6% | 18,315 | 1,537 | 244 ms |
-| FairLoad, weekly re-solve | 81.7% | 14,612 | 28.9% | 8,263 | 1,549 | 41 ms |
-| Perfect hindsight (upper bound) | 82.5% | 15,287 | 28.9% | 8,263 | 1,567 | 319 ms |
-| Shortest routes with a 70% floor | 78.2% | 11,244 | 28.9% | 8,953 | 1,517 | none |
+| Repeat last period | 77.7% | 12,072 | 26.3% | 15,350 | 1,719 | none |
+| Share of people in poverty | 76.6% | 13,852 | 29.2% | 9,627 | 1,667 | none |
+| Poverty share, capped ±50% | 77.5% | 12,676 | 27.1% | 14,880 | 1,706 | none |
+| One-forecast plan, no re-solve | 75.7% | 25,447 | 28.7% | 17,824 | 1,550 | 206 ms |
+| FairLoad, weekly re-solve | 82.5% | 12,529 | 29.2% | 8,020 | 1,581 | 32 ms |
+| Perfect hindsight (upper bound) | 83.0% | 12,752 | 29.2% | 8,020 | 1,593 | 232 ms |
+| Shortest routes with a 70% floor | 79.1% | 10,326 | 29.2% | 8,285 | 1,548 | none |
 
 ### Produce donation surge
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 83.1% | 46,573 | 27.8% | 14,583 | 1,773 | none |
-| Share of people in poverty | 81.6% | 47,191 | 28.9% | 9,164 | 1,720 | none |
-| Poverty share, capped ±50% | 82.6% | 46,631 | 27.9% | 14,145 | 1,758 | none |
-| One-forecast plan, no re-solve | 79.6% | 75,028 | 28.6% | 14,429 | 1,612 | 239 ms |
-| FairLoad, weekly re-solve | 85.9% | 46,507 | 28.9% | 8,263 | 1,699 | 40 ms |
-| Perfect hindsight (upper bound) | 86.4% | 46,049 | 28.9% | 8,263 | 1,717 | 249 ms |
-| Shortest routes with a 70% floor | 83.3% | 46,633 | 28.9% | 8,263 | 1,613 | none |
+| Repeat last period | 83.2% | 48,900 | 28.1% | 14,197 | 1,781 | none |
+| Share of people in poverty | 81.9% | 49,667 | 29.2% | 10,010 | 1,733 | none |
+| Poverty share, capped ±50% | 82.7% | 48,951 | 27.9% | 14,335 | 1,769 | none |
+| One-forecast plan, no re-solve | 79.8% | 77,806 | 28.7% | 14,986 | 1,618 | 210 ms |
+| FairLoad, weekly re-solve | 86.2% | 48,010 | 29.2% | 8,263 | 1,720 | 33 ms |
+| Perfect hindsight (upper bound) | 86.7% | 47,667 | 29.2% | 8,263 | 1,737 | 221 ms |
+| Shortest routes with a 70% floor | 83.6% | 48,886 | 29.2% | 8,506 | 1,630 | none |
 
 ### Demand spike in one county
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 77.8% | 7,310 | 23.5% | 15,590 | 1,790 | none |
-| Share of people in poverty | 75.7% | 7,954 | 28.1% | 15,063 | 1,762 | none |
-| Poverty share, capped ±50% | 77.2% | 7,406 | 23.9% | 16,034 | 1,783 | none |
-| One-forecast plan, no re-solve | 75.0% | 24,466 | 27.7% | 19,332 | 1,618 | 346 ms |
-| FairLoad, weekly re-solve | 80.5% | 7,997 | 28.1% | 10,208 | 1,664 | 52 ms |
-| Perfect hindsight (upper bound) | 80.9% | 8,289 | 28.1% | 10,208 | 1,669 | 455 ms |
-| Shortest routes with a 70% floor | 78.2% | 7,239 | 28.1% | 12,434 | 1,619 | none |
+| Repeat last period | 76.7% | 6,702 | 23.0% | 16,224 | 1,795 | none |
+| Share of people in poverty | 74.4% | 7,589 | 27.2% | 15,924 | 1,765 | none |
+| Poverty share, capped ±50% | 75.9% | 7,047 | 23.0% | 16,330 | 1,793 | none |
+| One-forecast plan, no re-solve | 74.6% | 22,255 | 26.9% | 20,161 | 1,624 | 216 ms |
+| FairLoad, weekly re-solve | 80.0% | 6,142 | 27.2% | 10,694 | 1,689 | 35 ms |
+| Perfect hindsight (upper bound) | 80.4% | 6,753 | 27.2% | 10,694 | 1,698 | 256 ms |
+| Shortest routes with a 70% floor | 77.2% | 6,096 | 27.2% | 13,610 | 1,612 | none |
 
 ### Cold storage failure
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 82.0% | 8,269 | 27.2% | 14,826 | 1,772 | none |
-| Share of people in poverty | 80.2% | 9,046 | 29.2% | 9,075 | 1,702 | none |
-| Poverty share, capped ±50% | 81.5% | 8,298 | 27.4% | 14,826 | 1,760 | none |
-| One-forecast plan, no re-solve | 78.7% | 25,696 | 28.8% | 14,564 | 1,597 | 245 ms |
-| FairLoad, weekly re-solve | 84.8% | 7,689 | 29.2% | 8,020 | 1,701 | 36 ms |
-| Perfect hindsight (upper bound) | 85.3% | 8,372 | 29.2% | 8,020 | 1,715 | 232 ms |
-| Shortest routes with a 70% floor | 81.8% | 8,471 | 29.2% | 8,510 | 1,579 | none |
+| Repeat last period | 81.9% | 7,590 | 27.0% | 15,069 | 1,799 | none |
+| Share of people in poverty | 80.2% | 8,340 | 29.3% | 8,942 | 1,733 | none |
+| Poverty share, capped ±50% | 81.5% | 7,633 | 27.1% | 14,683 | 1,786 | none |
+| One-forecast plan, no re-solve | 79.3% | 25,654 | 28.9% | 14,363 | 1,604 | 211 ms |
+| FairLoad, weekly re-solve | 85.0% | 8,137 | 29.3% | 8,020 | 1,715 | 32 ms |
+| Perfect hindsight (upper bound) | 85.4% | 8,362 | 29.3% | 8,020 | 1,728 | 222 ms |
+| Shortest routes with a 70% floor | 81.9% | 7,761 | 29.3% | 8,239 | 1,608 | none |
 
 ### Truck breakdown and demand spike
 
 | Policy | Need met | Waste (lb) | Worst ZIP | People in ZIPs below 60% | Truck miles | Solve time |
 |---|--:|--:|--:|--:|--:|--:|
-| Repeat last period | 73.6% | 10,548 | 23.6% | 15,669 | 1,770 | none |
-| Share of people in poverty | 72.3% | 14,031 | 28.1% | 16,113 | 1,717 | none |
-| Poverty share, capped ±50% | 73.3% | 11,313 | 24.5% | 16,518 | 1,756 | none |
-| One-forecast plan, no re-solve | 72.3% | 28,145 | 27.8% | 23,107 | 1,577 | 243 ms |
-| FairLoad, weekly re-solve | 79.2% | 10,433 | 28.1% | 10,208 | 1,596 | 44 ms |
-| Perfect hindsight (upper bound) | 79.9% | 11,254 | 28.1% | 10,208 | 1,602 | 326 ms |
-| Shortest routes with a 70% floor | 75.5% | 8,623 | 28.0% | 13,337 | 1,563 | none |
+| Repeat last period | 72.4% | 11,618 | 23.0% | 16,024 | 1,735 | none |
+| Share of people in poverty | 70.9% | 13,187 | 27.4% | 18,315 | 1,688 | none |
+| Poverty share, capped ±50% | 72.1% | 11,876 | 24.0% | 16,704 | 1,722 | none |
+| One-forecast plan, no re-solve | 70.7% | 28,954 | 27.1% | 23,100 | 1,553 | 194 ms |
+| FairLoad, weekly re-solve | 77.5% | 10,991 | 27.4% | 10,694 | 1,567 | 34 ms |
+| Perfect hindsight (upper bound) | 78.1% | 11,307 | 27.4% | 10,694 | 1,577 | 273 ms |
+| Shortest routes with a 70% floor | 74.1% | 10,004 | 27.3% | 14,404 | 1,533 | none |
 
 ## Sensitivity: gain over the best hand rule
 
-| Assumption changed | Normal weeks (points) | 95% interval | Truck breakdown + demand spike (points) | 95% interval |
+| Assumption changed | Normal weeks: gain vs best hand rule (points) | 95% interval | Truck breakdown + demand spike: gain vs best hand rule (points) | 95% interval |
 |---|--:|--:|--:|--:|
-| Base case | +3.0 | 2.6 to 3.4 | +6.0 | 5.6 to 6.4 |
-| Supply covers 70% of need | +1.8 | 1.0 to 2.5 | +4.4 | 3.7 to 5.1 |
-| Supply covers 100% of need | +0.7 | 0.4 to 1.0 | +3.8 | 3.4 to 4.2 |
-| Fleet hours 105% of current use | +4.4 | 3.8 to 4.9 | +6.9 | 6.5 to 7.2 |
-| Fleet hours 150% of current use | +0.4 | 0.2 to 0.6 | +1.2 | 0.7 to 1.7 |
-| Fleet hours 300% (trucks never limit) | +0.1 | 0.1 to 0.2 | +0.1 | 0.0 to 0.2 |
-| Spoilage halved | +3.1 | 2.6 to 3.5 | +6.2 | 5.8 to 6.6 |
-| Spoilage doubled | +2.8 | 2.4 to 3.2 | +5.7 | 5.3 to 6.1 |
-| Site intake halved | +1.7 | 1.4 to 2.1 | +4.8 | 4.4 to 5.1 |
-| Site intake doubled | +2.7 | 2.2 to 3.0 | +5.9 | 5.5 to 6.3 |
-| Need half poverty, half population | +3.0 | 2.5 to 3.5 | +6.2 | 5.8 to 6.6 |
-| Cold storage 0.75 weeks | +3.0 | 2.5 to 3.4 | +5.9 | 5.5 to 6.3 |
-| Handling 1 hour per load | +4.9 | 4.5 to 5.4 | +8.8 | 8.3 to 9.3 |
-| Handling 4 hours per load | +1.3 | 1.0 to 1.7 | +3.0 | 2.7 to 3.4 |
-| Plan 2 weeks ahead | +2.3 | 1.9 to 2.6 | +5.4 | 5.0 to 5.8 |
-| Plan 8 weeks ahead | +3.0 | 2.6 to 3.4 | +6.1 | 5.7 to 6.5 |
-| Hub locations off by about 5 road miles | +1.9 | 1.4 to 2.4 | +4.2 | 3.9 to 4.6 |
+| Base case | +3.1 | 2.6 to 3.5 | +5.1 | 4.5 to 5.8 |
+| Supply covers 70% of need | +2.4 | 1.5 to 3.2 | +2.9 | 2.1 to 3.9 |
+| Supply covers 100% of need | +0.8 | 0.6 to 1.0 | +3.7 | 3.4 to 3.9 |
+| Fleet hours 105% of current use | +5.0 | 4.7 to 5.3 | +5.5 | 4.4 to 6.5 |
+| Fleet hours 150% of current use | +0.5 | 0.3 to 0.7 | +1.6 | 1.1 to 2.2 |
+| Fleet hours 300% (trucks never limit) | +0.1 | 0.1 to 0.2 | +0.2 | 0.1 to 0.4 |
+| Spoilage halved | +3.2 | 2.7 to 3.6 | +5.2 | 4.6 to 5.8 |
+| Spoilage doubled | +2.8 | 2.3 to 3.3 | +5.0 | 4.3 to 5.6 |
+| Site intake halved | +1.9 | 1.6 to 2.2 | +4.5 | 4.3 to 4.8 |
+| Site intake doubled | +3.0 | 2.4 to 3.5 | +3.9 | 2.9 to 4.9 |
+| Need half poverty, half population | +3.2 | 2.5 to 3.8 | +5.0 | 4.3 to 5.8 |
+| Cold storage 0.75 weeks | +3.0 | 2.5 to 3.4 | +5.0 | 4.4 to 5.7 |
+| Handling 1 hour per load | +5.3 | 4.8 to 5.8 | +7.1 | 6.2 to 8.1 |
+| Handling 4 hours per load | +1.6 | 1.1 to 2.0 | +3.0 | 2.5 to 3.3 |
+| Plan 2 weeks ahead | +2.6 | 2.2 to 3.0 | +4.6 | 4.0 to 5.2 |
+| Plan 8 weeks ahead | +3.2 | 2.7 to 3.7 | +5.2 | 4.6 to 5.8 |
+| Hub locations off by about 5 road miles | +2.1 | 1.6 to 2.6 | +3.7 | 3.2 to 4.2 |
 
 ## Fairness target
 
@@ -132,14 +132,14 @@ Truck breakdown plus demand spike.
 
 | Target | Need met | Worst ZIP | People in ZIPs below 60% | Waste (lb) |
 |--:|--:|--:|--:|--:|
-| 0% | 80.7% | 24.5% | 18,794 | 11,366 |
-| 30% | 80.7% | 28.4% | 19,134 | 11,402 |
-| 50% | 80.7% | 28.5% | 18,641 | 11,328 |
-| 60% | 80.6% | 28.5% | 14,890 | 11,135 |
-| 70% | 80.5% | 28.5% | 9,965 | 10,805 |
-| 80% | 79.7% | 28.5% | 9,965 | 10,471 |
-| 90% | 79.1% | 28.5% | 10,068 | 10,484 |
-| 100% | 80.1% | 28.5% | 9,965 | 11,177 |
+| 0% | 77.8% | 21.3% | 21,107 | 13,141 |
+| 30% | 77.8% | 27.2% | 22,045 | 13,139 |
+| 50% | 77.8% | 27.3% | 23,865 | 13,132 |
+| 60% | 77.8% | 27.3% | 19,860 | 13,131 |
+| 70% | 77.4% | 27.3% | 10,937 | 11,452 |
+| 80% | 76.2% | 27.3% | 10,937 | 10,244 |
+| 90% | 76.2% | 27.3% | 11,955 | 11,084 |
+| 100% | 77.1% | 27.3% | 10,937 | 12,387 |
 
 Targets above 70% lower need met without further help here. The worst-served ZIP stays flat because one pantry site limits it.
 
@@ -149,13 +149,13 @@ FairLoad re-run on normal weeks with each change.
 
 | Change | Need met | Worst ZIP | People in ZIPs below 60% |
 |---|--:|--:|--:|
-| Current resources | 85.9% | 29.0% | 8,020 |
-| One more truck at Newark | 85.9% | 29.0% | 8,020 |
-| One more truck at Milford | 86.8% | 29.0% | 8,020 |
-| Double cold storage at both hubs | 85.9% | 29.0% | 8,020 |
-| One more site in 19805 Wilmington | 86.4% | 58.1% | 6,951 |
-| Three more sites in 19805 Wilmington | 86.4% | 64.4% | 0 |
-| Two more sites in 19711 Newark | 86.2% | 29.0% | 8,020 |
+| Current resources | 85.5% | 29.1% | 8,020 |
+| One more truck at Newark | 85.5% | 29.1% | 8,020 |
+| One more truck at Milford | 87.5% | 29.1% | 8,020 |
+| Double cold storage at both hubs | 85.5% | 29.1% | 8,020 |
+| One more site in 19805 Wilmington | 85.8% | 58.2% | 7,485 |
+| Three more sites in 19805 Wilmington | 85.8% | 64.6% | 0 |
+| Two more sites in 19711 Newark | 85.7% | 29.1% | 8,020 |
 
 ## What this does not show
 

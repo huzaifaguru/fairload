@@ -136,7 +136,7 @@ export default function Evidence() {
         <h2>If our assumptions are wrong</h2>
         <p>Gain in need met over the best hand rule, recalculated with each assumption changed. {ruleWins.length === 0 ? 'The interval stays above zero in every row, but it is close to zero when trucks never limit delivery.' : `The interval reaches zero or below in ${ruleWins.length} of ${V.sensitivity.length} settings, where FairLoad has no clear advantage.`}</p>
         <div className="tablewrap"><table className="full">
-          <thead><tr><th>Assumption changed</th><th className="r">Normal weeks: gain (pts)</th><th className="r">95% interval</th><th className="r">Disruptions: gain (pts)</th><th className="r">95% interval</th></tr></thead>
+          <thead><tr><th>Assumption changed</th><th className="r">Normal weeks: gain vs best hand rule (pts)</th><th className="r">95% interval</th><th className="r">Disruptions: gain vs best hand rule (pts)</th><th className="r">95% interval</th></tr></thead>
           <tbody>{V.sensitivity.map(s => <tr key={s.label}><td>{s.label}</td><td className="r">{pts(s.base.diff)}</td><td className="r">{ciPts(s.base.ci95)}</td><td className="r">{pts(s.combined.diff)}</td><td className="r">{ciPts(s.combined.ci95)}</td></tr>)}</tbody>
         </table></div>
         <p className="small muted fine">{V.seeds.quick.length} runs per setting. Disruptions means a truck breakdown and a demand spike together.</p>

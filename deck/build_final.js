@@ -257,7 +257,7 @@ const icon = async (Comp, color = 'FFFFFF') => {
   txt(s, 'Measure', { x: 6.95, y: 1.45, w: 5.7, h: 0.4, fontSize: 20, bold: true, color: C.text2 });
   txt(s, ['% of estimated need met', 'Pounds of food wasted', 'Worst-served ZIP and people in low-coverage ZIPs', 'Truck miles', 'Solve time in the browser'].map((t, j, a) => ({ text: t, options: { bullet: { indent: 16 }, breakLine: j < a.length - 1, paraSpaceAfter: 6 } })), { x: 6.95, y: 1.95, w: 5.78, h: 1.85, fontSize: 16 });
   txt(s, 'How we kept it honest', { x: 6.95, y: 3.82, w: 5.7, h: 0.4, fontSize: 20, bold: true, color: C.text2 });
-  txt(s, ['Reported 30 random runs per scenario, none used to set the model', 'Varied 16 settings, including truck time, spoilage and need', 'Sent every policy through the same simulator and limits'].map((t, j, a) => ({ text: t, options: { bullet: { indent: 16 }, breakLine: j < a.length - 1, paraSpaceAfter: 6 } })), { x: 6.95, y: 4.3, w: 5.78, h: 1.3, fontSize: 16 });
+  txt(s, ['Reported 30 random runs per scenario, kept apart from the runs we tuned on', 'Varied 16 settings, including truck time, spoilage and need', 'Sent every policy through the same simulator and limits'].map((t, j, a) => ({ text: t, options: { bullet: { indent: 16 }, breakLine: j < a.length - 1, paraSpaceAfter: 6 } })), { x: 6.95, y: 4.3, w: 5.78, h: 1.3, fontSize: 16 });
   txt(s, 'All results are simulated. They are not real-world savings.', { x: 0.6, y: 5.72, w: 12.13, h: 0.4, fontSize: 16, italic: true, color: C.accent2, bold: true });
   s.addNotes('The rules are not strawmen. They re-offer leftovers to ZIPs that can still take food, and the truck-aware rule was added because hand rules ignore truck time. The weights and default equity target were set before reported runs. One disclosure: we fixed the equity penalty after a first test run, because the flaw appeared in the planner. The headline gain barely changed.');
 
@@ -274,7 +274,7 @@ const icon = async (Comp, color = 'FFFFFF') => {
   card(s, 0.6, 5.42, 12.13, 0.62);
   txt(s, [{ text: 'Close to the limit: ', options: { bold: true, color: C.text2 } }, { text: `FairLoad came within ${Math.abs(V.scenarios.base.toHindsight.mean * 100).toFixed(1)} points of perfect hindsight on normal weeks, and solved in about ${Math.round(V.scenarios.base.policies.fairload.solveMs)} ms per week.` }], { x: 0.78, y: 5.47, w: 11.8, h: 0.52, fontSize: 15, valign: 'middle' });
   note(s, `Simulated: ${V.seeds.test.length} paired 12-week runs per scenario. Need met is pounds delivered as a share of estimated need. The strongest rule is chosen after the fact in each scenario, which favors the rules. Waste change is FairLoad minus that rule over 12 weeks.`, 6.15, 0.6);
-  s.addNotes(`The gain ranges from ${gMin} to ${gMax} percentage points. The strongest rule was chosen after seeing the results, so this comparison leans in favor of the rules. On normal weeks the gain is about ${Math.round(V.scenarios.base.policies.fairload.need * TOPS.base.gain.mean).toLocaleString('en-US')} pounds over 12 weeks. FairLoad won every one of the 30 paired runs against the truck-aware rule in each scenario.`);
+  s.addNotes(`The gain ranges from ${gMin} to ${gMax} percentage points. The strongest rule was chosen after seeing the results, so this comparison leans in favor of the rules. On normal weeks the gain is about ${Math.round(V.scenarios.base.policies.fairload.delivered / V.scenarios.base.policies.fairload.needMet * TOPS.base.gain.mean).toLocaleString('en-US')} pounds over 12 weeks. FairLoad won every one of the 30 paired runs against the truck-aware rule in each scenario.`);
 
   // limits -----------------------------------------------------------
   s = pres.addSlide({ masterName: 'CONTENT', sectionTitle: 'FairLoad' });
@@ -346,7 +346,7 @@ const icon = async (Comp, color = 'FFFFFF') => {
   s.addText('404 Error Found', { placeholder: 'title' });
   s.addText('Better decisions about who gets food, with the reasoning in plain sight.', { placeholder: 'body' });
   card(s, 0.8, 5.0, 8.2, 1.4, C.background2, 'Team card');
-  txt(s, [{ text: 'Team contributions: ', options: { bold: true, color: C.text2 } }, { text: 'members and their roles are listed on our Devpost project page.' }], { x: 1.0, y: 5.08, w: 7.8, h: 1.24, fontSize: 16, valign: 'middle' });
+  txt(s, [{ text: 'Team: ', options: { bold: true, color: C.text2 } }, { text: 'Syed Mohammad Huzaifa, Shaikh Muhammad Zain, Muhammad Maaz Ur Rehman' }], { x: 1.0, y: 5.08, w: 7.8, h: 1.24, fontSize: 16, valign: 'middle' });
   if (DEMO) txt(s, 'Live demo: ' + DEMO, { x: 0.8, y: 6.55, w: 8.6, h: 0.4, fontSize: 15, color: C.background1 });
   drawMap(s, 10.0, 0.75, 6.0);
   s.addNotes('Thank you. We would welcome your questions about the model, the data or the assumptions.');

@@ -19,7 +19,7 @@ Built by team 404 Error Found for DataNova 2026, problem DN-SI-01 (Food Bank Res
 
 ## Main result
 
-In simulation, FairLoad met 2.3 to 3.7 percentage points more need than the strongest rule tested, in all 6 scenarios. Most of that comes from limited truck time, and the gain nearly disappears when trucks never limit delivery. FairLoad did not consistently cut waste. Full results are in [docs/RESULTS.md](docs/RESULTS.md).
+In simulation, FairLoad met 2.7 to 3.4 percentage points more need than the strongest rule tested, in all 6 scenarios. Most of that comes from limited truck time, and the gain nearly disappears when trucks never limit delivery. FairLoad did not consistently cut waste. Full results are in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## Run it
 
@@ -69,6 +69,10 @@ The problem statement suggests Python with PuLP or OR-Tools. We used JavaScript 
 
 - Solver: [HiGHS](https://highs.dev/) through [highs-js](https://github.com/lovasoa/highs-js)
 - App: React, Vite and Leaflet
+
+## License
+
+MIT. See [LICENSE](LICENSE).
 
 ## Data credits
 
