@@ -74,7 +74,7 @@ export default function Evidence() {
   return (
     <main className="page">
       <p className="lead">FairLoad met more need than the strongest rule we tested in all {names.length} simulated scenarios, by {(Math.min(...diffs) * 100).toFixed(1)} to {(Math.max(...diffs) * 100).toFixed(1)} percentage points. Most of that comes from limited truck time. When trucks never limit delivery, the gain over the hand rules falls to {pts(truckless.base.diff)} points.</p>
-      <p className="bad-note"><b>These results are simulated.</b> They test the method under stated assumptions and are not real-world savings. Each scenario runs {V.seeds.test.length} random 12-week cases that were not used to set the model. Every policy goes through the same simulator and the same limits.</p>
+      <p className="bad-note"><b>These results are simulated.</b> They test the method under stated assumptions and are not real-world savings. Each scenario runs {V.seeds.test.length} random 12-week cases, kept apart from the runs we tuned on. Every policy goes through the same simulator and the same limits.</p>
       <div className="stats">
         <div className="stat"><b>{pts(baseTop.gain.mean)} pts</b><span>need met vs strongest rule, normal weeks (95% interval {ciPts(baseTop.gain.ci95)})</span></div>
         <div className="stat"><b>{pts(combTop.gain.mean)} pts</b><span>the same, with a truck breakdown and a demand spike together</span></div>
